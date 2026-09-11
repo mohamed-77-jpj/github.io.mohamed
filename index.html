@@ -1,0 +1,1133 @@
+```html
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mohamed | Web Developer</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+:root{
+    --cyan:#00f5ff;
+    --blue:#0066ff;
+    --purple:#8b5cf6;
+    --bg:#050508;
+    --card:#0d0d13;
+    --text:#fff;
+    --muted:#92929f;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Cairo',sans-serif;
+    overflow-x:hidden;
+}
+
+/* ================= BACKGROUND ================= */
+
+body:before{
+    content:"";
+    position:fixed;
+    width:500px;
+    height:500px;
+    background:var(--cyan);
+    filter:blur(180px);
+    opacity:.08;
+    top:-150px;
+    right:-150px;
+    pointer-events:none;
+}
+
+body:after{
+    content:"";
+    position:fixed;
+    width:450px;
+    height:450px;
+    background:var(--purple);
+    filter:blur(180px);
+    opacity:.08;
+    bottom:-150px;
+    left:-150px;
+    pointer-events:none;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+/* ================= NAVBAR ================= */
+
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    height:75px;
+    z-index:999;
+    background:rgba(5,5,8,.72);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(255,255,255,.07);
+}
+
+.nav{
+    height:75px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-size:27px;
+    font-weight:800;
+}
+
+.logo span{
+    color:var(--cyan);
+}
+
+.nav ul{
+    display:flex;
+    gap:30px;
+    list-style:none;
+}
+
+.nav a{
+    color:#aaa;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.nav a:hover{
+    color:var(--cyan);
+}
+
+.menu{
+    display:none;
+    font-size:28px;
+    cursor:pointer;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding-top:75px;
+    position:relative;
+}
+
+.hero-content{
+    width:55%;
+    z-index:2;
+}
+
+.badge{
+    display:inline-block;
+    padding:7px 15px;
+    border:1px solid rgba(0,245,255,.3);
+    background:rgba(0,245,255,.06);
+    color:var(--cyan);
+    border-radius:30px;
+    margin-bottom:20px;
+    animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+    50%{
+        box-shadow:0 0 30px rgba(0,245,255,.15);
+    }
+}
+
+.hero h1{
+    font-size:clamp(45px,7vw,82px);
+    line-height:1.1;
+    margin-bottom:20px;
+    font-weight:800;
+}
+
+.gradient{
+    background:linear-gradient(90deg,var(--cyan),#7c3aed,var(--cyan));
+    background-size:200%;
+    -webkit-background-clip:text;
+    color:transparent;
+    animation:gradient 4s linear infinite;
+}
+
+@keyframes gradient{
+    to{background-position:200%}
+}
+
+.hero p{
+    color:var(--muted);
+    font-size:18px;
+    max-width:650px;
+    margin-bottom:30px;
+}
+
+.buttons{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    text-decoration:none;
+    padding:14px 25px;
+    border-radius:10px;
+    transition:.3s;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+}
+
+.primary{
+    background:var(--cyan);
+    color:#000;
+    font-weight:700;
+    box-shadow:0 0 30px rgba(0,245,255,.15);
+}
+
+.secondary{
+    border:1px solid #333;
+    color:#fff;
+}
+
+.btn:hover{
+    transform:translateY(-5px);
+}
+
+/* ================= ANIMATED ART ================= */
+
+.hero-art{
+    width:45%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+}
+
+.orbit{
+    width:340px;
+    height:340px;
+    border:1px solid rgba(0,245,255,.2);
+    border-radius:50%;
+    position:relative;
+    animation:rotate 15s linear infinite;
+}
+
+@keyframes rotate{
+    to{transform:rotate(360deg)}
+}
+
+.orbit:before,
+.orbit:after{
+    content:"";
+    position:absolute;
+    border:1px solid rgba(139,92,246,.25);
+    border-radius:50%;
+}
+
+.orbit:before{
+    inset:35px;
+}
+
+.orbit:after{
+    inset:75px;
+}
+
+.center{
+    position:absolute;
+    width:145px;
+    height:145px;
+    border-radius:35px;
+    background:linear-gradient(135deg,#111827,#10101a);
+    border:1px solid rgba(0,245,255,.4);
+    box-shadow:0 0 60px rgba(0,245,255,.18);
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%) rotate(-10deg);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:60px;
+    animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+    50%{
+        transform:translate(-50%,-58%) rotate(5deg);
+    }
+}
+
+.ball{
+    width:18px;
+    height:18px;
+    background:var(--cyan);
+    border-radius:50%;
+    position:absolute;
+    box-shadow:0 0 25px var(--cyan);
+}
+
+.ball.one{
+    top:30px;
+    left:50%;
+}
+
+.ball.two{
+    right:15px;
+    top:50%;
+    background:var(--purple);
+    box-shadow:0 0 25px var(--purple);
+}
+
+.ball.three{
+    bottom:25px;
+    left:50%;
+}
+
+/* ================= SECTIONS ================= */
+
+section{
+    padding:110px 0;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.title h2{
+    font-size:42px;
+}
+
+.title h2 span{
+    color:var(--cyan);
+}
+
+.title p{
+    color:#777;
+}
+
+/* ================= ABOUT ================= */
+
+.about{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+}
+
+.card{
+    background:linear-gradient(145deg,#101017,#09090d);
+    border:1px solid #202027;
+    border-radius:20px;
+    padding:35px;
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    border-color:rgba(0,245,255,.35);
+    box-shadow:0 20px 50px rgba(0,0,0,.3);
+}
+
+.card h3{
+    font-size:28px;
+    margin-bottom:15px;
+}
+
+.card p{
+    color:#888;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.stat{
+    text-align:center;
+}
+
+.stat strong{
+    display:block;
+    color:var(--cyan);
+    font-size:40px;
+}
+
+/* ================= SKILLS ================= */
+
+.skills{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.skill{
+    padding:28px;
+    background:var(--card);
+    border:1px solid #202027;
+    border-radius:18px;
+    text-align:center;
+    transition:.4s;
+}
+
+.skill:hover{
+    transform:translateY(-10px) scale(1.02);
+    border-color:var(--cyan);
+}
+
+.skill-icon{
+    font-size:45px;
+    margin-bottom:12px;
+}
+
+.skill h3{
+    margin-bottom:8px;
+}
+
+.skill p{
+    color:#777;
+    font-size:14px;
+}
+
+/* ================= PROJECTS ================= */
+
+.projects{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.project{
+    background:#0d0d13;
+    border:1px solid #202027;
+    border-radius:20px;
+    overflow:hidden;
+    transition:.4s;
+}
+
+.project:hover{
+    transform:translateY(-10px);
+    border-color:rgba(0,245,255,.5);
+}
+
+.project-image{
+    height:210px;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:
+    radial-gradient(circle at 50% 50%,rgba(0,245,255,.15),transparent 60%),
+    #09090d;
+    overflow:hidden;
+}
+
+.project-image:before{
+    content:"";
+    width:110px;
+    height:110px;
+    border:2px solid var(--cyan);
+    border-radius:30px;
+    position:absolute;
+    animation:spinbox 6s linear infinite;
+}
+
+@keyframes spinbox{
+    to{transform:rotate(360deg)}
+}
+
+.project-image span{
+    font-size:60px;
+    z-index:2;
+    animation:float2 2s ease-in-out infinite;
+}
+
+@keyframes float2{
+    50%{transform:translateY(-12px)}
+}
+
+.project-content{
+    padding:25px;
+}
+
+.project-content h3{
+    font-size:22px;
+    margin-bottom:8px;
+}
+
+.project-content p{
+    color:#777;
+    font-size:14px;
+    margin-bottom:15px;
+}
+
+.tags{
+    display:flex;
+    gap:7px;
+    flex-wrap:wrap;
+    margin-bottom:18px;
+}
+
+.tag{
+    background:#17171e;
+    color:var(--cyan);
+    padding:4px 9px;
+    border-radius:5px;
+    font-size:11px;
+}
+
+.demo{
+    color:var(--cyan);
+    text-decoration:none;
+}
+
+/* ================= SERVICES ================= */
+
+.services{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.service{
+    padding:35px;
+    border-radius:20px;
+    background:#0d0d13;
+    border:1px solid #202027;
+    transition:.4s;
+}
+
+.service:hover{
+    transform:translateY(-8px);
+    border-color:var(--cyan);
+}
+
+.service-icon{
+    font-size:45px;
+    margin-bottom:15px;
+}
+
+.service p{
+    color:#777;
+}
+
+/* ================= CONTACT ================= */
+
+.contact-box{
+    max-width:800px;
+    margin:auto;
+    text-align:center;
+    padding:55px 30px;
+    border-radius:25px;
+    background:
+    radial-gradient(circle at 50% 0,rgba(0,245,255,.1),transparent 55%),
+    #0d0d13;
+    border:1px solid #202027;
+}
+
+.contact-box h2{
+    font-size:40px;
+}
+
+.contact-box p{
+    color:#777;
+    margin:15px 0 30px;
+}
+
+.whatsapp{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:15px 28px;
+    border-radius:10px;
+    background:#25D366;
+    color:#fff;
+    text-decoration:none;
+    font-weight:700;
+    box-shadow:0 0 30px rgba(37,211,102,.18);
+    transition:.3s;
+}
+
+.whatsapp:hover{
+    transform:scale(1.06);
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    border-top:1px solid #18181d;
+    text-align:center;
+    padding:30px;
+    color:#666;
+}
+
+footer span{
+    color:var(--cyan);
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:900px){
+
+    .nav ul{
+        display:none;
+        position:absolute;
+        top:75px;
+        right:0;
+        width:100%;
+        background:#08080c;
+        flex-direction:column;
+        padding:25px;
+        text-align:center;
+        border-bottom:1px solid #222;
+    }
+
+    .nav ul.active{
+        display:flex;
+    }
+
+    .menu{
+        display:block;
+    }
+
+    .hero{
+        text-align:center;
+    }
+
+    .hero-content{
+        width:100%;
+    }
+
+    .hero-art{
+        display:none;
+    }
+
+    .buttons{
+        justify-content:center;
+    }
+
+    .about{
+        grid-template-columns:1fr;
+    }
+
+    .skills{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .projects{
+        grid-template-columns:1fr;
+    }
+
+    .services{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:500px){
+
+    section{
+        padding:80px 0;
+    }
+
+    .hero h1{
+        font-size:44px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    .skills{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .stats strong{
+        font-size:30px;
+    }
+
+    .title h2{
+        font-size:32px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+<div class="container nav">
+
+<div class="logo">Mohamed<span>.</span></div>
+
+<ul id="navLinks">
+<li><a href="#home">الرئيسية</a></li>
+<li><a href="#about">عني</a></li>
+<li><a href="#skills">مهاراتي</a></li>
+<li><a href="#projects">مشاريعي</a></li>
+<li><a href="#services">خدماتي</a></li>
+<li><a href="#contact">تواصل معي</a></li>
+</ul>
+
+<div class="menu" onclick="menu()">☰</div>
+
+</div>
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+<div class="container" style="display:flex;align-items:center;">
+
+<div class="hero-content">
+
+<div class="badge">
+● متاح للعمل على مشاريع جديدة
+</div>
+
+<h1>
+أنا <span class="gradient">محمد</span><br>
+Web Developer
+</h1>
+
+<p>
+أصمم وأطور مواقع ويب عصرية، سريعة ومتجاوبة
+تجمع بين التصميم الاحترافي والأداء القوي وتجربة المستخدم المميزة.
+</p>
+
+<div class="buttons">
+
+<a href="#projects" class="btn primary">
+🚀 شاهد مشاريعي
+</a>
+
+<a href="#contact" class="btn secondary">
+💬 تواصل معي
+</a>
+
+</div>
+
+</div>
+
+
+<div class="hero-art">
+
+<div class="orbit">
+
+<div class="ball one"></div>
+<div class="ball two"></div>
+<div class="ball three"></div>
+
+<div class="center">
+💻
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<div class="container">
+
+<div class="title">
+<h2>من <span>أنا؟</span></h2>
+<p>تعرف عليّ أكثر</p>
+</div>
+
+<div class="about">
+
+<div class="card">
+
+<h3>مطور ويب شغوف 🚀</h3>
+
+<p>
+أهلاً! أنا محمد، مطور ويب أحب بناء المواقع الحديثة
+وتحويل الأفكار إلى تجارب رقمية جميلة وسريعة.
+أهتم بالتفاصيل الصغيرة وأحب تجربة التقنيات الجديدة.
+</p>
+
+</div>
+
+<div class="stats">
+
+<div class="card stat">
+<strong>20+</strong>
+مشروع تجريبي
+</div>
+
+<div class="card stat">
+<strong>10+</strong>
+تقنيات
+</div>
+
+<div class="card stat">
+<strong>100%</strong>
+شغف
+</div>
+
+<div class="card stat">
+<strong>24/7</strong>
+تعلم وتطوير
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+<div class="container">
+
+<div class="title">
+<h2>مهاراتي <span>التقنية</span></h2>
+<p>الأدوات والتقنيات التي أستخدمها</p>
+</div>
+
+<div class="skills">
+
+<div class="skill">
+<div class="skill-icon">🌐</div>
+<h3>HTML5</h3>
+<p>بناء صفحات الويب</p>
+</div>
+
+<div class="skill">
+<div class="skill-icon">🎨</div>
+<h3>CSS3</h3>
+<p>تصميم وواجهات</p>
+</div>
+
+<div class="skill">
+<div class="skill-icon">⚡</div>
+<h3>JavaScript</h3>
+<p>تفاعل ووظائف</p>
+</div>
+
+<div class="skill">
+<div class="skill-icon">🐍</div>
+<h3>Python</h3>
+<p>برمجة وتطبيقات</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+<div class="container">
+
+<div class="title">
+<h2>مشاريعي <span>المميزة</span></h2>
+<p>نماذج من المشاريع التجريبية</p>
+</div>
+
+<div class="projects">
+
+
+<div class="project">
+
+<div class="project-image">
+<span>🛒</span>
+</div>
+
+<div class="project-content">
+
+<h3>Neo Store</h3>
+
+<p>
+متجر إلكتروني عصري لبيع الأجهزة والإكسسوارات التقنية.
+</p>
+
+<div class="tags">
+<span class="tag">HTML</span>
+<span class="tag">CSS</span>
+<span class="tag">JavaScript</span>
+</div>
+
+<a href="#" class="demo">مشاهدة المشروع →</a>
+
+</div>
+</div>
+
+
+<div class="project">
+
+<div class="project-image">
+<span>🤖</span>
+</div>
+
+<div class="project-content">
+
+<h3>AI Assistant</h3>
+
+<p>
+واجهة تجريبية لمساعد ذكاء اصطناعي بتصميم مستقبلي.
+</p>
+
+<div class="tags">
+<span class="tag">AI</span>
+<span class="tag">JavaScript</span>
+<span class="tag">API</span>
+</div>
+
+<a href="#" class="demo">مشاهدة المشروع →</a>
+
+</div>
+</div>
+
+
+<div class="project">
+
+<div class="project-image">
+<span>📊</span>
+</div>
+
+<div class="project-content">
+
+<h3>Admin Dashboard</h3>
+
+<p>
+لوحة تحكم احترافية لعرض الإحصائيات والبيانات.
+</p>
+
+<div class="tags">
+<span class="tag">Dashboard</span>
+<span class="tag">JavaScript</span>
+</div>
+
+<a href="#" class="demo">مشاهدة المشروع →</a>
+
+</div>
+</div>
+
+
+<div class="project">
+
+<div class="project-image">
+<span>🍔</span>
+</div>
+
+<div class="project-content">
+
+<h3>Food Express</h3>
+
+<p>
+موقع مطعم حديث مع قائمة طعام وتجربة موبايل ممتازة.
+</p>
+
+<div class="tags">
+<span class="tag">HTML</span>
+<span class="tag">CSS</span>
+<span class="tag">Responsive</span>
+</div>
+
+<a href="#" class="demo">مشاهدة المشروع →</a>
+
+</div>
+</div>
+
+
+<div class="project">
+
+<div class="project-image">
+<span>💼</span>
+</div>
+
+<div class="project-content">
+
+<h3>Business Pro</h3>
+
+<p>
+موقع شركة احترافي لعرض الخدمات وجذب العملاء.
+</p>
+
+<div class="tags">
+<span class="tag">Landing Page</span>
+<span class="tag">CSS</span>
+</div>
+
+<a href="#" class="demo">مشاهدة المشروع →</a>
+
+</div>
+</div>
+
+
+<div class="project">
+
+<div class="project-image">
+<span>🚀</span>
+</div>
+
+<div class="project-content">
+
+<h3>Startup X</h3>
+
+<p>
+صفحة هبوط مستقبلية لشركة تقنية ناشئة.
+</p>
+
+<div class="tags">
+<span class="tag">UI/UX</span>
+<span class="tag">HTML</span>
+<span class="tag">CSS</span>
+</div>
+
+<a href="#" class="demo">مشاهدة المشروع →</a>
+
+</div>
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SERVICES -->
+
+<section id="services">
+
+<div class="container">
+
+<div class="title">
+<h2>ماذا <span>أقدم؟</span></h2>
+<p>خدمات تطوير الويب</p>
+</div>
+
+<div class="services">
+
+<div class="service">
+<div class="service-icon">💻</div>
+<h3>تطوير المواقع</h3>
+<p>
+إنشاء مواقع حديثة وسريعة ومتوافقة مع جميع الأجهزة.
+</p>
+</div>
+
+<div class="service">
+<div class="service-icon">🎨</div>
+<h3>تصميم الواجهات</h3>
+<p>
+تصميم واجهات جذابة وعصرية تركز على تجربة المستخدم.
+</p>
+</div>
+
+<div class="service">
+<div class="service-icon">⚡</div>
+<h3>تحسين الأداء</h3>
+<p>
+تحسين سرعة الموقع وتجربة الاستخدام على الموبايل والكمبيوتر.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+<div class="container">
+
+<div class="contact-box">
+
+<h2>
+خلينا نعمل حاجة <span class="gradient">فشيخة</span> 🚀
+</h2>
+
+<p>
+عندك فكرة مشروع؟ ابعتلي على واتساب ونتكلم عن التفاصيل.
+</p>
+
+<a
+class="whatsapp"
+href="https://wa.me/201030932896"
+target="_blank"
+>
+💬 تواصل معي على واتساب
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+© 2026 <span>Mohamed</span> — جميع الحقوق محفوظة
+
+</footer>
+
+
+<script>
+
+function menu(){
+
+    document.getElementById("navLinks")
+    .classList.toggle("active");
+
+}
+
+document.querySelectorAll("#navLinks a").forEach(function(link){
+
+    link.addEventListener("click",function(){
+
+        document.getElementById("navLinks")
+        .classList.remove("active");
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
+```
